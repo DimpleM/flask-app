@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2>Home Page</h2>
+
+<p>Welcome {{ username }}!</p>
+<div>
+    <h2>User Details</h2>
+    <br/>
+    {% if accounts != '' %}
+        <button type="button" class="btn btn-primary" onclick="Delete()">Delete</button>
+    {% endif %}
+</div>
+
+{% if accounts != '' %}
+    <select  id="usernames" style="width: 200px;" >
+        {% for item in accounts %}
+            <option value="{{item[0]}}">{{item[0]}}</option>
+        {% endfor %}
+    </select>
+{% else %}
+    <p>No other registered users</p>
+{%endif%}
+{% endblock %}
